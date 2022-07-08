@@ -91,6 +91,7 @@
 		<snapshotRepository>
 			<id>artifact-registry</id>
 			<url>artifactregistry://us-central1-maven.pkg.dev/supplychaincartography/java-repo</url>
+			<uniqueVersion>true</uniqueVersion>
 		</snapshotRepository>
 		<repository>
 			<id>artifact-registry</id>
