@@ -1,4 +1,3 @@
-#!/usr/env/bin bash
 
 #-Dmaven.repo.local=${MAVEN_REPO_LOCAL} \
 
