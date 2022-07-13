@@ -4,22 +4,15 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-metadata_path=$1
-
 #-Dmaven.repo.local=${MAVEN_REPO_LOCAL} \
 
 ./mvnw clean package \
   -Dmaven.artifact.threads=32 \
-  --update-snapshots \
-  --no-transfer-progress
-
-# groupId=$(./mvnw help:evaluate -Dexpression=project.groupId -DforceStdout -q)
-# artifactId=$(./mvnw help:evaluate -Dexpression=project.artifactId -DforceStdout -q)
-# version=$(./mvnw help:evaluate -Dexpression=project.version -DforceStdout -q)
+  --update-snapshots
 
 source target/maven-archiver/pom.properties
 
-cat <<EOF > ${metadata_path}
+cat <<EOF > ${METADATA_PATH}
 {
   "groupId": "${groupId}",
   "artifactId": "${artifactId}",
@@ -27,4 +20,4 @@ cat <<EOF > ${metadata_path}
 }
 EOF
 
-cat ${metadata_path}
+cat ${METADATA_PATH}
