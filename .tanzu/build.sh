@@ -4,6 +4,8 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+metadata_path=$1
+
 #-Dmaven.repo.local=${MAVEN_REPO_LOCAL} \
 
 ./mvnw clean package \
@@ -17,7 +19,7 @@ set -o pipefail
 
 source target/maven-archiver/pom.properties
 
-cat <<EOF > $(results.metadata.path)
+cat <<EOF > ${metadata_path}
 {
   "groupId": "${groupId}",
   "artifactId": "${artifactId}",
@@ -25,4 +27,4 @@ cat <<EOF > $(results.metadata.path)
 }
 EOF
 
-cat $(results.metadata.path)
+cat ${metadata_path}
