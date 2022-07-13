@@ -6,9 +6,9 @@
   --update-snapshots \
   --no-transfer-progress
 
-groupId=$(./mvnw help:evaluate -f pom.xml --offline -Dexpression=project.groupId -DforceStdout -q)
-artifactId=$(./mvnw help:evaluate -f pom.xml --offline -Dexpression=project.artifactId -DforceStdout -q)
-version=$(./mvnw help:evaluate -f pom.xml --offline -Dexpression=project.version -DforceStdout -q)
+groupId=$(./mvnw help:evaluate -Dexpression=project.groupId -DforceStdout -q)
+artifactId=$(./mvnw help:evaluate -Dexpression=project.artifactId -DforceStdout -q)
+version=$(./mvnw help:evaluate -Dexpression=project.version -DforceStdout -q)
 
 cat <<EOF > metadata.json
 {
