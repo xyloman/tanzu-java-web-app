@@ -6,4 +6,4 @@
   --update-snapshots \
   --no-transfer-progress
 
-cat target/maven-archiver/pom.properties | jq -R -s 'split("\n") | map(select(length > 0)) | map(select(startswith("#") | not)) | map(split("=")) | map({(.[0]): .[1:] | join("=")}) | add'
+xmllint --xpath '/*[local-name()="project"]/*[local-name()="version"]/text()' pom.xml
