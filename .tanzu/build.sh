@@ -1,4 +1,9 @@
 
+set -o xtrace
+set -o errexit
+set -o nounset
+set -o pipefail
+
 #-Dmaven.repo.local=${MAVEN_REPO_LOCAL} \
 
 ./mvnw clean package \
@@ -12,7 +17,7 @@
 
 source target/maven-archiver/pom.properties
 
-cat <<EOF > metadata.json
+cat <<EOF > $(results.metadata.path)
 {
   "groupId": "${groupId}",
   "artifactId": "${artifactId}",
@@ -20,4 +25,4 @@ cat <<EOF > metadata.json
 }
 EOF
 
-cat metadata.json
+cat $(results.metadata.path)
