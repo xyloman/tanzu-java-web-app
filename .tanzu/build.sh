@@ -16,7 +16,9 @@ cat <<EOF > ${METADATA_PATH}
 {
   "groupId": "${groupId}",
   "artifactId": "${artifactId}",
-  "version": "${version}"
+  "version": "${version}",
+  "classifier": "",
+  "type": "jar"
 }
 EOF
 
