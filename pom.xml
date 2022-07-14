@@ -10,12 +10,13 @@
 	<groupId>com.example</groupId>
 	<artifactId>demo</artifactId>
 	<!-- <version>0.0.1-SNAPSHOT</version> -->
-	<version>0.0.1-build.4</version>
+	<version>0.0.1-build.${buildNumber}</version>
 	<name>demo</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
 		<java.version>8</java.version>
+		<buildNumber>local</buildNumber>
 	</properties>
 
 	<licenses>

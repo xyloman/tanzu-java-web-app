@@ -8,9 +8,12 @@ set -o pipefail
 
 metadata_path=$1
 
+timestamp=$(date "+%Y%m%d-%H%M%S")
 ./mvnw clean deploy \
+  -DbuildNumber=${timestamp} \
   -Dmaven.artifact.threads=32 \
-  --update-snapshots
+  --update-snapshots \
+  --no-transfer-progress
 
 source target/maven-archiver/pom.properties
 
